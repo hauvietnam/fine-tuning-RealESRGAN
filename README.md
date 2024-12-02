@@ -46,23 +46,22 @@ Hướng dẫn fine-tuning model Real-ESRGAN với bộ ảnh biển số xe Vi�
   ```
   
 
----
+| Option             | Description                                                                                                            |
+|--------------------|------------------------------------------------------------------------------------------------------------------------|
+| `-h`              | Show this help                                                                                                        |
+| `-i input-path`   | Input image path (jpg/png/webp) or directory                                                                           |
+| `-o output-path`  | Output image path (jpg/png/webp) or directory                                                                          |
+| `-s scale`        | Upscale ratio (can be 2, 3, 4. Default=4)                                                                              |
+| `-t tile-size`    | Tile size (>=32/0=auto, default=0). Can be `0,0,0` for multi-GPU                                                       |
+| `-m model-path`   | Folder path to the pre-trained models (default=models)                                                                |
+| `-n model-name`   | Model name (default=`realesr-animevideov3`, options: `realesr-animevideov3` | `realesrgan-x4plus` | `realesrgan-x4plus-anime` | `realesrnet-x4plus`) |
+| `-g gpu-id`       | GPU device to use (default=auto). Can be `0,1,2` for multi-GPU                                                        |
+| `-j load:proc:save`| Thread count for load/proc/save (default=`1:2:2`). Can be `1:2,2,2:2` for multi-GPU                                   |
+| `-x`              | Enable TTA mode                                                                                                       |
+| `-f format`       | Output image format (jpg/png/webp, default=`ext/png`)                                                                 |
+| `-v`              | Verbose output                                                                                                        |
 
-  -h                   show this help
-  -i input-path        input image path (jpg/png/webp) or directory
-  -o output-path       output image path (jpg/png/webp) or directory
-  -s scale             upscale ratio (can be 2, 3, 4. default=4)
-  -t tile-size         tile size (>=32/0=auto, default=0) can be 0,0,0 for multi-gpu
-  -m model-path        folder path to the pre-trained models. default=models
-  -n model-name        model name (default=realesr-animevideov3, can be realesr-animevideov3 | realesrgan-x4plus | realesrgan-x4plus-anime | realesrnet-x4plus)
-  -g gpu-id            gpu device to use (default=auto) can be 0,1,2 for multi-gpu
-  -j load:proc:save    thread count for load/proc/save (default=1:2:2) can be 1:2,2,2:2 for multi-gpu
-  -x                   enable tta mode"
-  -f format            output image format (jpg/png/webp, default=ext/png)
-  -v                   verbose output
-```
 
-Note that it may introduce block inconsistency (and also generate slightly different results from the PyTorch implementation), because this executable file first crops the input image into several tiles, and then processes them separately, finally stitches together.
 
 ### Python script
 
