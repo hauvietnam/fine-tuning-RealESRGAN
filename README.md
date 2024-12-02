@@ -1,6 +1,6 @@
 # fine-tuning-RealESRGAN
-
-
+Hướng dẫn fine-tuning model Real-ESRGAN với bộ ảnh biển số xe Việt Nam
+- Tham khảo repo gốc tại đây https://github.com/xinntao/Real-ESRGAN/
 
 
 
