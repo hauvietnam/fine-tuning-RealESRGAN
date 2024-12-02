@@ -4,32 +4,41 @@ Hướng dẫn fine-tuning model Real-ESRGAN với bộ ảnh biển số xe Vi�
 
 
 
-## 🔧 Dependencies and Installation
+## 🔧 Cài đặt các thư viện
 
 - Python >= 3.7 (Recommend to use [Anaconda](https://www.anaconda.com/download/#linux) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html))
 - [PyTorch >= 1.7](https://pytorch.org/)
 
-### Installation
+### Cài đặt
 
 1. Clone repo
 
     ```bash
-    git clone https://github.com/xinntao/Real-ESRGAN.git
-    cd Real-ESRGAN
+    git clone [https://github.com/hauvietnam/fine-tuning-RealESRGAN.git]
+    cd fine-tuning-RealESRGAN
     ```
 
-1. Install dependent packages
-
+1. Cài đặt thư viện
+- Vì model gốc đã được tác giả đóng gói thành framework nên 1 số lỗi có thể phát sinh trong thư viện, mình sẽ tổng hợp 1 số lỗi mình đã tìm ra.
     ```bash
     # Install basicsr - https://github.com/xinntao/BasicSR
-    # We use BasicSR for both training and inference
-    pip install basicsr
+    pip install basicsr  
     # facexlib and gfpgan are for face enhancement
     pip install facexlib
     pip install gfpgan
     pip install -r requirements.txt
     python setup.py develop
     ```
+- Sau khi cài xong, nếu gặp lỗi ModuleNotFoundError: No module named 'torchvision.transforms.functional_tensor' thì các bạn vào thư viện basicsr/data/degradations.py
+  và sửa dòng
+  ```bash 
+  from torchvision.transforms.functional_tensor import rgb_to_grayscale
+  ```
+  thành
+  ```bash
+  from torchvision.transforms._functional_tensor import rgb_to_grayscale
+  ```
+  
 
 ---
 
