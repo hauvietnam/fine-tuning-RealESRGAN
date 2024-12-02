@@ -29,12 +29,18 @@ Hướng dẫn fine-tuning model Real-ESRGAN với bộ ảnh biển số xe Vi�
     pip install -r requirements.txt
     python setup.py develop
     ```
-- Sau khi cài xong, nếu gặp lỗi ModuleNotFoundError: No module named 'torchvision.transforms.functional_tensor' thì các bạn vào thư viện basicsr/data/degradations.py
-  và sửa dòng
+- Sau khi cài xong, nếu gặp lỗi
+  
+  ```bash
+  ModuleNotFoundError: No module named 'torchvision.transforms.functional_tensor'
+  ```
+  thì các bạn vào thư viện basicsr/data/degradations.py và sửa dòng
+  
   ```bash 
   from torchvision.transforms.functional_tensor import rgb_to_grayscale
   ```
   thành
+  
   ```bash
   from torchvision.transforms._functional_tensor import rgb_to_grayscale
   ```
