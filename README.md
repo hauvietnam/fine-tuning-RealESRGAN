@@ -36,32 +36,25 @@ Hướng dẫn fine-tuning model Real-ESRGAN với bộ ảnh biển số xe Vi�
   ```
   thì các bạn vào thư viện basicsr/data/degradations.py và sửa dòng
   
-  ```bash 
+  ```python 
   from torchvision.transforms.functional_tensor import rgb_to_grayscale
   ```
   thành
   
-  ```bash
+  ```python
   from torchvision.transforms._functional_tensor import rgb_to_grayscale
   ```
   
-- Mình đã trained lại mô hình với tập dữ liệu biển số xe mà lưu checkpoint ở  [đây](https://drive.google.com/drive/u/0/folders/1uhu4xFjHePxQEeH7ohU3sPLkha9eJ1a9)
+- Mình đã trained lại mô hình với tập dữ liệu biển số xe và lưu checkpoint ở  [đây](https://drive.google.com/drive/u/0/folders/1uhu4xFjHePxQEeH7ohU3sPLkha9eJ1a9)
 
-### Python script
-
-#### Usage of python script
-
-1. You can use X4 model for **arbitrary output size** with the argument `outscale`. The program will further perform cheap resize operation after the Real-ESRGAN output.
-
+## Inference 
 ```console
-Usage: python inference_realesrgan.py -n RealESRGAN_x4plus -i infile -o outfile [options]...
-
-A common command: python inference_realesrgan.py -n RealESRGAN_x4plus -i infile --outscale 3.5 --face_enhance
+ python inference_realesrgan.py -m <path_to_model> -i infile --outscale 3.5 
 
   -h                   show this help
   -i --input           Input image or folder. Default: inputs
   -o --output          Output folder. Default: results
-  -n --model_name      Model name. Default: RealESRGAN_x4plus
+  -m --model_path      Model path. Default: net_g_latest.pth
   -s, --outscale       The final upsampling scale of the image. Default: 4
   --suffix             Suffix of the restored image. Default: out
   -t, --tile           Tile size, 0 for no tile during testing. Default: 0
@@ -70,20 +63,6 @@ A common command: python inference_realesrgan.py -n RealESRGAN_x4plus -i infile 
   --ext                Image extension. Options: auto | jpg | png, auto means using the same extension as inputs. Default: auto
 ```
 
-#### Inference general images
-
-Download pre-trained models: [RealESRGAN_x4plus.pth](https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth)
-
-```bash
-wget https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth -P weights
-```
-
-Inference!
-
-```bash
-python inference_realesrgan.py -n RealESRGAN_x4plus -i inputs --face_enhance
-```
-
-Results are in the `results` folder
+Kết quả ở mục result
 
 
