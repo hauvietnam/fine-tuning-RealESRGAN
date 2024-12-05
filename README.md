@@ -14,7 +14,7 @@ Hướng dẫn fine-tuning model Real-ESRGAN với bộ ảnh biển số xe Vi�
 1. Clone repo
 
     ```bash
-    git clone [https://github.com/hauvietnam/fine-tuning-RealESRGAN.git]
+    git clone https://github.com/hauvietnam/fine-tuning-RealESRGAN.git
     cd fine-tuning-RealESRGAN
     ```
 
@@ -45,23 +45,7 @@ Hướng dẫn fine-tuning model Real-ESRGAN với bộ ảnh biển số xe Vi�
   from torchvision.transforms._functional_tensor import rgb_to_grayscale
   ```
   
-
-| Option             | Description                                                                                                            |
-|--------------------|------------------------------------------------------------------------------------------------------------------------|
-| `-h`              | Show this help                                                                                                        |
-| `-i input-path`   | Input image path (jpg/png/webp) or directory                                                                           |
-| `-o output-path`  | Output image path (jpg/png/webp) or directory                                                                          |
-| `-s scale`        | Upscale ratio (can be 2, 3, 4. Default=4)                                                                              |
-| `-t tile-size`    | Tile size (>=32/0=auto, default=0). Can be `0,0,0` for multi-GPU                                                       |
-| `-m model-path`   | Folder path to the pre-trained models (default=models)                                                                |
-| `-n model-name`   | Model name (default=`realesr-animevideov3`, options: `realesr-animevideov3` | `realesrgan-x4plus` | `realesrgan-x4plus-anime` | `realesrnet-x4plus`) |
-| `-g gpu-id`       | GPU device to use (default=auto). Can be `0,1,2` for multi-GPU                                                        |
-| `-j load:proc:save`| Thread count for load/proc/save (default=`1:2:2`). Can be `1:2,2,2:2` for multi-GPU                                   |
-| `-x`              | Enable TTA mode                                                                                                       |
-| `-f format`       | Output image format (jpg/png/webp, default=`ext/png`)                                                                 |
-| `-v`              | Verbose output                                                                                                        |
-
-
+- Mình đã trained lại mô hình với tập dữ liệu biển số xe mà lưu checkpoint ở  [đây](https://drive.google.com/drive/u/0/folders/1uhu4xFjHePxQEeH7ohU3sPLkha9eJ1a9)
 
 ### Python script
 
